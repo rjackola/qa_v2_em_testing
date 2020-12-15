@@ -28,7 +28,7 @@ const employees: Array<Employee> = [
 ];
 
 describe("employee manager v2", () => {
-  const page = new EmployeeManager({ browser: "chrome" });
+  const page = new EmployeeManager({ browser: "firefox" });
   beforeEach(async () => {
     await page.navigate();
   });
