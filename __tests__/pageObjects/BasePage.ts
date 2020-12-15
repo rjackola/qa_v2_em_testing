@@ -102,7 +102,14 @@ export class BasePage {
     await this.driver.wait(until.elementIsEnabled(element));
     return element.getAttribute(attribute);
   }
-
+  /**
+   * Will take a screenshot and save it to the filepath/filename provided.
+   * Automatically saves as a .png file.
+   * @param {string} filepath - the filepath relative to the project's base folder where you want the screenshot saved
+   * @example
+   * page.takeScreenshot("myFolder/mypic")
+   * //picture saves in "myFolder" as "mypic.png"
+   */
   async takeScreenshot(filepath: string) {
     fs.writeFile(
       `${filepath}.png`,
