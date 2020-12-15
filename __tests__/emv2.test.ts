@@ -5,7 +5,7 @@ import * as employees from "./data/employees.json";
 
 describe("employee manager v2", () => {
   // this is where you'd want to change firefox vs chrome to update your testing.
-  const page = new EmployeeManager({ browser: "chrome" });
+  const page = new EmployeeManager({ browser: "firefox" });
   beforeEach(async () => {
     await page.navigate();
   });
