@@ -1,3 +1,4 @@
+
 import { EmployeeManager, Employee } from "./pageObjects/EmployeeManager";
 
 const employees: Array<Employee> = [
@@ -35,6 +36,7 @@ describe("employee manager v2", () => {
   afterAll(async () => {
     await page.driver.quit();
   });
+  const fs = require('fs')
   test("Searching narrows the list", async () => {
     let originalList = await page.getEmployeeList();
     await page.searchFor("Bill");
@@ -57,5 +59,16 @@ describe("employee manager v2", () => {
     await page.deleteEmployee("Test Employee");
     let employeeList = await page.getEmployeeList();
     expect(employeeList).not.toContain("Test Employee");
+    
+    fs.writeFile(
+      `${__dirname}/../screenshot.png`,
+      await (page. driver).takeScreenshot(),
+      "base64", 
+    
+      (e) => {
+        if (e) console.error(e)
+        else console.log('You took a screenshot')
+      }
+    )
   });
 });
